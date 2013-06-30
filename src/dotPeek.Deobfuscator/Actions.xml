@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<actions>
+  <action id="dotPeek.Deobfuscator.CommandWindowAction" text="Open command window" />
+  <action id="dotPeek.Deobfuscator.AboutAction" text="About dotPeek.Deobfuscator..." />
+
+  <insert group-id="DotPeek.File" position="before" anchor-id="AssemblyExplorerAddItem">
+    <action-group id="dotPeek.Deobfuscator.File" text="dotPeek.Deobfuscator">
+        <action-ref id="dotPeek.Deobfuscator.CommandWindowAction" />
+        <action-ref id="dotPeek.Deobfuscator.AboutAction" />
+    </action-group>
+    <action-ref id="dotPeek.Deobfuscator.CommandWindowAction" />
+    <separator />
+  </insert>
+</actions>
