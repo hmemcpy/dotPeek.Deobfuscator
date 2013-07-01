@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8ACC57D-318E-45E8-A244-294D2CD1D2F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dotPeek.Deobfuscator</RootNamespace>
+    <AssemblyName>dotPeek.Deobfuscator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\\Bin\dotPeek32.exe</StartProgram>
+    <StartWorkingDirectory>D:\dev\dotPeek.Deobfuscator\src\dotPeek.Deobfuscator\bin\Debug\</StartWorkingDirectory>
+    <StartArguments>/Internal /Plugin=dotPeek.Deobfuscator.dll</StartArguments>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;JET_MODE_ASSERT;DP11</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ReSharperSdkTools Condition=" '$(ReSharperSdkTools)' == '' ">C:\Program Files (x86)\JetBrains\ReSharper\v8.0\SDK\Tools</ReSharperSdkTools>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dotPeek">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\dotPeek.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Annotations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Decompiler.Core">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Decompiler.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.DotPeek.Common">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.DotPeek.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ActiProLicense">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ActiProLicense.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.ActivityTracking">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.ActivityTracking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.ComponentModel">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.ComponentModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.DocumentManager">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.DocumentManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.DocumentModel">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.DocumentModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.IDE">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.IDE.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Interop.WinApi">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Interop.WinApi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Metadata">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Metadata.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.ProjectModel">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.ProjectModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Shell">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Shell.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Shell.Extensions">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Shell.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Symbols">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Symbols.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.TextControl">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.TextControl.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.UI">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.UI.Standalone">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.UI.Standalone.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ReSharper.Util">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.Platform.ReSharper.Util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon.CSharp">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon.Engine">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.Engine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon.Specific">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.Specific.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon.VB">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.VB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Daemon.Xml">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Daemon.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.ExternalProcessStorage">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.ExternalProcessStorage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.ExternalSources">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.ExternalSources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.CSharp">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.ExternalSources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources.VB">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.ExternalSources.VB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Navigation">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.VB">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.VB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Web">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Xml">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Feature.Services.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Browsing">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Browsing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Common">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Environment">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Environment.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Finding">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Finding.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Intellisense">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Intellisense.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Features.Shared">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Features.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.NewRefactorings">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.NewRefactorings.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.CSharp">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Services">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Services.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Services.CSharp">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Services.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Services.VB">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Services.VB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Services.Xml">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Services.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.VB">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.VB.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.VB.ConstantCalculatorLib">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.VB.ConstantCalculatorLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Web">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Xaml">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Xaml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Xml">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Psi.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Resources">
+      <HintPath>C:\Program Files (x86)\JetBrains\dotPeek\v1.1\Bin\JetBrains.ReSharper.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\AssemblyDeobfuscatorManager.cs" />
+    <Compile Include="Components\IAssemblyDeobfuscatorManager.cs" />
+    <Compile Include="Handlers\DeobfuscateActionHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\PluginInfo.cs" />
+    <Compile Include="ThemedIcons.DotPeekDeobfuscator.Generated.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Actions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Actions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\de4dot\de4dot.code\de4dot.code.csproj">
+      <Project>{4D10B9EB-3BF1-4D61-A389-CB019E8C9622}</Project>
+      <Name>de4dot.code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\de4dot\dnlib\src\dnlib.csproj">
+      <Project>{FDFC1237-143F-4919-8318-4926901F4639}</Project>
+      <Name>dnlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ThemedIconPng Include="Unlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ThemedIcons.DotPeekDeobfuscator.Generated.Xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(ReSharperSdkTools)\MSBuild\JetBrains.Build.Platform.ThemedIconsConverter.Targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

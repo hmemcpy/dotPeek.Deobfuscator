@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<actions>
+  
+  <action id="dotPeek.Deobfuscator.Deobfuscate" text="Deobfuscate..." image="dotPeek.Deobfuscator.DotPeekDeobfuscatorThemedIcons+Unlock">
+    <shortcut>Control+Shift+D</shortcut>
+    <vs-shortcut>Control+Shift+D</vs-shortcut>
+  </action>
+
+  <insert group-id="AssemblyExplorer.ActionBar" position="last">
+    <action-ref id="dotPeek.Deobfuscator.Deobfuscate" />
+  </insert>
+
+  <insert group-id="AssemblyExplorerContextMenu" position="after" anchor-id="AssemblyExplorerExportToProject">
+    <separator />
+    <action-ref id="dotPeek.Deobfuscator.Deobfuscate" />
+    <separator />
+  </insert>
+</actions>
