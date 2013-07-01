@@ -6,7 +6,7 @@ set PRODUCT=DotPeek
 set BASEDIR=JetBrains\%PRODUCT%\v%VERSION%
 set PLUGIN=dotPeek.Deobfuscator
 
-set INSTALL_SOURCEDIR=%~dp0\%PLUGIN%.%VERSION%
+set INSTALL_SOURCEDIR=%~dp0\%PLUGIN%
 
 set PER_USER_PLUGINDIR=%LOCALAPPDATA%\%BASEDIR%\plugins\%PLUGIN%
 
@@ -19,14 +19,16 @@ del /q %PER_USER_PLUGINDIR%\*.* 2> NUL
 :do_copy
 echo Copying files...
 copy /y "%INSTALL_SOURCEDIR%\*.dll" "%PER_USER_PLUGINDIR%"
-copy /y "%INSTALL_SOURCEDIR%\*.pdb" "%PER_USER_PLUGINDIR%" 2> NUL
+
+if not exist "%PER_USER_PLUGINDIR%\LICENSES" mkdir "%PER_USER_PLUGINDIR%\LICENSES"
+copy /y "%INSTALL_SOURCEDIR%\LICENSES\*.*" "%PER_USER_PLUGINDIR%\LICENSES\"
 
 echo.
 
 REM See https://github.com/citizenmatt/UnblockZoneIdentifier
 echo Unblocking downloaded files...
 pushd "%PER_USER_PLUGINDIR%"
-for /r %%i in (*) do "%~dp0\UnblockZoneIdentifier" "%%i"
+for /r %%i in (*.dll) do "%~dp0\UnblockZoneIdentifier" "%%i"
 popd
 
 :end
