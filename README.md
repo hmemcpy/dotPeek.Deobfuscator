@@ -16,7 +16,7 @@ From dotPeek, select the assembly you'd like to deobfuscate, and press the **Deo
 
 If you wish to just install a copy of the plugins without building yourself:
 
-- Download the latest zip file: [**dotPeek.Deobfuscator.zip**](..)
+- Download the latest zip file: [**dotPeek.Deobfuscator.zip**](http://dl.bintray.com/hmemcpy/dotPeek-Deobfuscator/dotPeek.Deobfuscator.zip?direct)
 - Extract everything
 - Run the batch file Install-dotPeek.Deobfuscator.1.1.bat for dotPeek v1.1.
 
