@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Forms;
-using dotPeek.Deobfuscator.Handlers;
+using dotPeek.Deobfuscator.Components;
 using JetBrains.ActionManagement;
 using JetBrains.Application;
 using JetBrains.Application.DataContext;
@@ -17,6 +17,7 @@ using JetBrains.UI.Application.Progress;
 using JetBrains.Util;
 using System.Collections.Generic;
 using System.Linq;
+using MessageBox = JetBrains.Util.MessageBox;
 
 namespace dotPeek.Deobfuscator
 {
@@ -53,7 +54,10 @@ namespace dotPeek.Deobfuscator
 
             if (newAssembly != null)
             {
-                AddToAssemblyExplorer(newAssembly, solution);
+                if (MessageBox.ShowYesNo("Deobfuscation complete!\nWould you like to open the deobfuscated assembly?"))
+                {
+                    AddToAssemblyExplorer(newAssembly, solution);
+                }
             }
         }
 

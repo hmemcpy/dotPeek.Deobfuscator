@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using de4dot.code;
@@ -11,7 +11,7 @@ using JetBrains.Application.Progress;
 using JetBrains.ProjectModel.Model2.Assemblies.Interfaces;
 using JetBrains.Util;
 
-namespace dotPeek.Deobfuscator.Handlers
+namespace dotPeek.Deobfuscator.Components
 {
     [ShellComponent]
     public class AssemblyDeobfuscatorManager : IAssemblyDeobfuscatorManager

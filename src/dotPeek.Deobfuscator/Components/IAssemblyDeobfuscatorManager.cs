@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using de4dot.code.deobfuscators;
 using JetBrains.Application.Progress;
 using JetBrains.ProjectModel.Model2.Assemblies.Interfaces;
 using JetBrains.Util;
 
-namespace dotPeek.Deobfuscator.Handlers
+namespace dotPeek.Deobfuscator.Components
 {
     public interface IAssemblyDeobfuscatorManager
     {
