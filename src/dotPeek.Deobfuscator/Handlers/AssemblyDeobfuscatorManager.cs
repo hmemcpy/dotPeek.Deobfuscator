@@ -11,14 +11,8 @@ using JetBrains.Application.Progress;
 using JetBrains.ProjectModel.Model2.Assemblies.Interfaces;
 using JetBrains.Util;
 
-namespace dotPeek.Deobfuscator
+namespace dotPeek.Deobfuscator.Handlers
 {
-    public interface IAssemblyDeobfuscatorManager
-    {
-        IEnumerable<IDeobfuscatorInfo> KnownDeobfuscators { get; }
-        FileSystemPath Execute(IAssemblyFile existingAssemblyFile, string newFileName, IProgressIndicator progressIndicator);
-    }
-
     [ShellComponent]
     public class AssemblyDeobfuscatorManager : IAssemblyDeobfuscatorManager
     {
@@ -70,17 +64,19 @@ namespace dotPeek.Deobfuscator
         {
             try
             {
-                progressIndicator.Start(2);
+                progressIndicator.Start(5);
                 progressIndicator.TaskName = "Deobfuscating...";
                 progressIndicator.CurrentItemText = string.Format("Saving to {0}", obfuscatedFile.NewFilename);
 
+                progressIndicator.Advance(1);
                 obfuscatedFile.deobfuscateBegin();
 
+                progressIndicator.Advance(1);
                 obfuscatedFile.deobfuscate();
 
+                progressIndicator.Advance(1);
                 obfuscatedFile.deobfuscateEnd();
 
-                progressIndicator.Advance(1);
                 // turn all flags on
                 RenamerFlags flags = RenamerFlags.DontCreateNewParamDefs | RenamerFlags.DontRenameDelegateFields |
                                      RenamerFlags.RenameEvents |
@@ -92,6 +88,7 @@ namespace dotPeek.Deobfuscator
                                      RenamerFlags.RestoreEventsFromNames |
                                      RenamerFlags.RestoreProperties | RenamerFlags.RestorePropertiesFromNames;
                 var renamer = new Renamer(obfuscatedFile.DeobfuscatorContext, new[] { obfuscatedFile }, flags);
+                progressIndicator.Advance(1);
                 renamer.rename();
 
                 progressIndicator.Advance(1);

@@ -1,37 +1,27 @@
 using System;
-using System.Collections.ObjectModel;
-using System.Windows;
 using System.Windows.Forms;
+using dotPeek.Deobfuscator.Handlers;
 using JetBrains.ActionManagement;
-using JetBrains.Annotations;
 using JetBrains.Application;
 using JetBrains.Application.DataContext;
 using JetBrains.Application.Progress;
-using JetBrains.Application.Settings;
-using JetBrains.Application.Settings.Store.Implementation;
 using JetBrains.IDE.TreeBrowser;
 using JetBrains.ProjectModel;
 using JetBrains.ProjectModel.Impl;
 using JetBrains.ProjectModel.Model2.Assemblies.Interfaces;
-using JetBrains.ProjectModel.Model2.References;
-using JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.AssemblyExport;
 using JetBrains.ReSharper.Features.Browsing.AssemblyExplorer;
 using JetBrains.ReSharper.Features.Browsing.AssemblyExplorer.ExplorerNodesModel.Core;
 using JetBrains.ReSharper.Features.Browsing.AssemblyExplorer.ExplorerNodesModel.Nodes;
-using JetBrains.ReSharper.Features.Browsing.AssemblyExplorer.ProjFileModel.Export;
-using JetBrains.ReSharper.Features.Browsing.AssemblyExplorer.ProjFileModel.Export.History;
 using JetBrains.TreeModels;
 using JetBrains.UI.Application.Progress;
-using JetBrains.UI.CrossFramework;
-using JetBrains.UI.Settings;
 using JetBrains.Util;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace dotPeek.Deobfuscator
 {
-    [ActionHandler("dotPeek.Deobfuscator.CommandWindowAction")]
-    public class CommandWindowActionHandler : IActionHandler
+    [ActionHandler("dotPeek.Deobfuscator.Deobfuscate")]
+    public class DeobfuscateActionHandler : IActionHandler
     {
         public bool Update(IDataContext context, ActionPresentation presentation, DelegateUpdate nextUpdate)
         {
@@ -74,6 +64,7 @@ namespace dotPeek.Deobfuscator
                 OverwritePrompt = true,
                 FileName = existingAssemblyFile.Location.NameWithoutExtension + "-deobfuscated" + existingAssemblyFile.Location.ExtensionWithDot,
                 DefaultExt = "dll",
+                Title = "Save Deobfuscated Assembly As...",
                 Filter = "DLL File (*.dll)|*.dll|All Files (*.*)|*.*",
             };
 
@@ -107,7 +98,7 @@ namespace dotPeek.Deobfuscator
             IAssemblyFile assemblyFile = GetAssemblyFile(data.First());
             if (assemblyFile == null)
                 return null;
-            AssemblyInfoCache component = solution.TryGetComponent<AssemblyInfoCache>();
+            var component = solution.TryGetComponent<AssemblyInfoCache>();
             if (component == null)
                 return null;
             if (!assemblyFile.Location.ExistsFile || AssemblyExplorerUtil.AssemblyIsBroken(assemblyFile.Location, component))

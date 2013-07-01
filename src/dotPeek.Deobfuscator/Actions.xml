@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <actions>
-  <action id="dotPeek.Deobfuscator.CommandWindowAction" text="Open command window" />
-  <action id="dotPeek.Deobfuscator.AboutAction" text="About dotPeek.Deobfuscator..." />
+  
+  <action id="dotPeek.Deobfuscator.Deobfuscate" text="Deobfuscate..." image="dotPeek.Deobfuscator.DotPeekDeobfuscatorThemedIcons+Unlock">
+    <shortcut>Control+Shift+D</shortcut>
+    <vs-shortcut>Control+Shift+D</vs-shortcut>
+  </action>
 
-  <insert group-id="DotPeek.File" position="before" anchor-id="AssemblyExplorerAddItem">
-    <action-group id="dotPeek.Deobfuscator.File" text="dotPeek.Deobfuscator">
-        <action-ref id="dotPeek.Deobfuscator.CommandWindowAction" />
-        <action-ref id="dotPeek.Deobfuscator.AboutAction" />
-    </action-group>
-    <action-ref id="dotPeek.Deobfuscator.CommandWindowAction" />
+  <insert group-id="AssemblyExplorer.ActionBar" position="last">
+    <action-ref id="dotPeek.Deobfuscator.Deobfuscate" />
+  </insert>
+
+  <insert group-id="AssemblyExplorerContextMenu" position="after" anchor-id="AssemblyExplorerExportToProject">
+    <separator />
+    <action-ref id="dotPeek.Deobfuscator.Deobfuscate" />
     <separator />
   </insert>
 </actions>
